@@ -1,15 +1,25 @@
 {
 	"name": "snapClone",
 	"version": "0.0.1",
-	"private": true,
+	"description": "Picture Messaging",
+	"main": "server/server.js",
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
 		"test": "jest"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/camdunne/snapClone.git"
+	},
+	"author": "Cameron Dunne (https://github.com/camdunne)",
+	"license": "ISC",
 	"dependencies": {
-		"bookshelf": "^0.10.3",
 		"commitizen": "^2.9.6",
-		"knex": "^0.13.0",
+		"eslint": "^3.19.0",
+		"eslint-config-airbnb": "^15.0.1",
+		"eslint-plugin-import": "^2.3.0",
+		"eslint-plugin-jsx-a11y": "^5.0.3",
+		"eslint-plugin-react": "^7.0.1",
 		"react": "16.0.0-alpha.6",
 		"react-native": "0.44.2"
 	},
