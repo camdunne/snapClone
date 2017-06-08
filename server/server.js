@@ -3,9 +3,12 @@ const path = require('path');
 const cors = require('cors');
 require('dotenv').config();
 
+const router = require('./config/routes');
+
 const app = express();
 app.use(cors());
 
+app.use('/', router);
 
 app.use(express.static(path.join(`${__dirname}/../public`)));
 
