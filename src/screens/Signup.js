@@ -6,6 +6,8 @@ import {
   View,
   Button,
 } from 'react-native';
+import { Actions } from 'react-native-router-flux'; // New code
+
 import styles from '../styles/styles.ios';
 export default class Signup extends Component {
   constructor(props) {
@@ -14,7 +16,6 @@ export default class Signup extends Component {
   onSubmit() {
 
   }
-  onLogin() {}
 
   render() {
     return (
@@ -22,7 +23,7 @@ export default class Signup extends Component {
         <Text
           style={{ fontSize: 27 }}
         >
-          Log in
+          Sign up
         </Text>
         <TextInput
           style={{ height: 40, marginLeft: '10%' }}
@@ -31,16 +32,21 @@ export default class Signup extends Component {
         />
         <TextInput
           style={{ height: 40, marginLeft: '10%' }}
+          placeholder="Email"
+          onChangeText={text => this.setState({ text })}
+        />
+        <TextInput
+          style={{ height: 40, marginLeft: '10%' }}
           placeholder="Password"
           onChangeText={text => this.setState({ text })}
         />
         <View style={{ margin: 7 }} />
+        {/*<Button*/}
+          {/*onPress={this.props.onSubmit}*/}
+          {/*title="Submit"*/}
+        {/*/>*/}
         <Button
-          onPress={this.props.onSubmit}
-          title="Submit"
-        />
-        <Button
-          onPress={this.props.onLogin}
+          onPress={() => Actions.login() }
           title="Log In"
         />
       </ScrollView>
