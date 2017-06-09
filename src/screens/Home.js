@@ -15,7 +15,7 @@ export default class Home extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{ marginTop: '30%'}}>
         <Text>Hello</Text>
       </View>
     );
