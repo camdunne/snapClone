@@ -7,14 +7,14 @@ import {
   Button,
 } from 'react-native';
 import styles from '../styles/styles.ios';
-export default class Login extends Component {
+export default class Signup extends Component {
   constructor(props) {
     super(props);
   }
   onSubmit() {
 
   }
-  onSignup() {}
+  onLogin() {}
 
   render() {
     return (
@@ -40,8 +40,8 @@ export default class Login extends Component {
           title="Submit"
         />
         <Button
-          onPress={this.props.onSignup}
-          title="Sign up"
+          onPress={this.props.onLogin}
+          title="Log In"
         />
       </ScrollView>
 

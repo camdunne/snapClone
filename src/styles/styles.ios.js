@@ -19,7 +19,7 @@ export default StyleSheet.create({
         borderRadius: 30
     },
     text: {
-        color: 'black',
+        color: 'white',
         fontSize: 34,
         fontWeight: 'bold'
     }
