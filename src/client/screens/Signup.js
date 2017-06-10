@@ -6,12 +6,14 @@ import {
   View,
   Button,
 } from 'react-native';
-import { Actions } from 'react-native-router-flux'; // New code
-
-import styles from '../styles/styles.ios';
-export default class Login extends Component {
+import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
+import { getUser } from '../actions/userAction';
+import styles from '../styles/styles';
+class Signup extends Component {
   constructor(props) {
     super(props);
+    console.log('props', props)
   }
   onSubmit() {
 
@@ -23,11 +25,16 @@ export default class Login extends Component {
         <Text
           style={{ fontSize: 27 }}
         >
-          Log in
+          Sign up
         </Text>
         <TextInput
           style={{ height: 40, marginLeft: '10%' }}
           placeholder="Username"
+          onChangeText={text => this.setState({ text })}
+        />
+        <TextInput
+          style={{ height: 40, marginLeft: '10%' }}
+          placeholder="Email"
           onChangeText={text => this.setState({ text })}
         />
         <TextInput
@@ -41,11 +48,15 @@ export default class Login extends Component {
           {/*title="Submit"*/}
         {/*/>*/}
         <Button
-          onPress={() => Actions.signup() }
-          title="Sign up"
+          onPress={() => Actions.login() }
+          title="Log In"
         />
       </ScrollView>
 
     );
   }
-}
+};
+
+const mapStatetoProps = (state) => state;
+
+export default connect(mapStatetoProps, { getUser })(Signup);

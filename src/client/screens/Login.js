@@ -8,8 +8,8 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux'; // New code
 
-import styles from '../styles/styles.ios';
-export default class Signup extends Component {
+import styles from '../styles/styles';
+export default class Login extends Component {
   constructor(props) {
     super(props);
   }
@@ -23,16 +23,11 @@ export default class Signup extends Component {
         <Text
           style={{ fontSize: 27 }}
         >
-          Sign up
+          Log in
         </Text>
         <TextInput
           style={{ height: 40, marginLeft: '10%' }}
           placeholder="Username"
-          onChangeText={text => this.setState({ text })}
-        />
-        <TextInput
-          style={{ height: 40, marginLeft: '10%' }}
-          placeholder="Email"
           onChangeText={text => this.setState({ text })}
         />
         <TextInput
@@ -46,8 +41,8 @@ export default class Signup extends Component {
           {/*title="Submit"*/}
         {/*/>*/}
         <Button
-          onPress={() => Actions.login() }
-          title="Log In"
+          onPress={() => Actions.signup() }
+          title="Sign up"
         />
       </ScrollView>
 
