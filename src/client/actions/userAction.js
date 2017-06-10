@@ -1,3 +1,3 @@
-export function getUser(props) {
-  return { type: 'GET_USER_FULFILLED', payload: props };
+export function newUser(props) {
+  return { type: 'NEW_USER_FULFILLED', payload: props };
 }
