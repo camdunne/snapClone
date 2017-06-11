@@ -6,9 +6,7 @@ import {
   View,
   Button,
 } from 'react-native';
-import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux'; // New code
-import { validateUser } from '../actions/userAction';
 
 import styles from '../styles/styles';
 class Login extends Component {
@@ -24,7 +22,6 @@ class Login extends Component {
   handleSubmit() {
 
   }
-
   render() {
     return (
       <ScrollView style={{ marginTop: '30%' }}>
@@ -59,6 +56,5 @@ class Login extends Component {
     );
   }
 }
-const mapStateToProps = ({ user }) => ({ user });
 
-export default connect(mapStateToProps, { validateUser })(Login);
+export default Login;
