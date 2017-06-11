@@ -1,9 +1,10 @@
 import db from '../db/index';
 
 module.exports = {
-  createUser: (req, res) => {
+  createUser: (req, res, next) => {
     // need to salt password
-    console.log('i need req', req);
+    console.log(req.body);
+    console.log('i need req', req.body);
     const queryStr = 'INSERT INTO users (username, password, email) values (?, ?, ?)';
     const params = [req.body.username, req.body.password, req.body.email];
     db.query(queryStr, params, (err, results) => {
@@ -12,7 +13,7 @@ module.exports = {
     });
   },
   getAllUsers: (req, res) => {
-    console.log('what is this', req)
+    console.log('what is this', req);
     db.query('select * from users', (err, results) => {
       if (err) { throw err; }
       res.send(results);

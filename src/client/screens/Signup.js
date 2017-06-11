@@ -7,7 +7,7 @@ import {
   Button,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux'; // New code
-
+import { createUser } from '../api/user';
 
 class Signup extends Component {
   constructor(props) {
@@ -25,9 +25,7 @@ class Signup extends Component {
       email: this.state.email,
       password: this.state.password,
     };
-    // this.props.newUser(params);
-    // then if successful, go to login
-    // if unsuccessful, give error message
+    createUser(params);
   }
   render() {
     return (

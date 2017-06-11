@@ -1,9 +1,9 @@
 import userController from '../controllers/userCtrl';
 
 module.exports = (app) => {
-  app.post('/newUser', userController.createUser);
-  app.get('/users', userController.getAllUsers);
-  app.post('/users/auth', userController.authenticate);
-  app.post('/users/auth/refresh', userController.refresh);
-  app.post('/users/auth/revoke', userController.revokeAccess);
-}
+  app.post('/api/user/create', userController.createUser);
+  app.get('/api/user/all', userController.getAllUsers);
+  app.post('/api/user/auth', userController.authenticate);
+  app.post('/api/user/refresh', userController.refresh);
+  app.post('/api/user/revoke', userController.revokeAccess);
+};
