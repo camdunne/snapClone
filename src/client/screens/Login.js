@@ -5,10 +5,12 @@ import {
   TextInput,
   View,
   Button,
+  StyleSheet,
+  Dimensions,
 } from 'react-native';
+const { width, height } = Dimensions.get('window');
 import { Actions } from 'react-native-router-flux'; // New code
 
-import styles from '../styles/styles';
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -24,23 +26,28 @@ class Login extends Component {
   }
   render() {
     return (
-      <ScrollView style={{ marginTop: '30%' }}>
+      <ScrollView style={styles.background}>
         <Text
-          style={{ fontSize: 27 }}
+          style={{ marginTop: '10%', fontSize: 27 }}
         >
           Log in
         </Text>
-        <TextInput
-          style={{ height: 40, marginLeft: '10%' }}
-          placeholder="Username"
-          onChangeText={username => this.setState({ username })}
-        />
-        <TextInput
-          style={{ height: 40, marginLeft: '10%' }}
-          placeholder="Password"
-          secureTextEntry
-          onChangeText={password => this.setState({ password })}
-        />
+        <View style={styles.container} />
+        <View >
+          <TextInput
+            style={{ height: 40, marginLeft: '10%' }}
+            placeholder="Username"
+            onChangeText={username => this.setState({ username })}
+          />
+        </View>
+        <View >
+          <TextInput
+            style={{ height: 40, marginLeft: '10%' }}
+            placeholder="Password"
+            secureTextEntry
+            onChangeText={password => this.setState({ password })}
+          />
+        </View>
         <View style={{ margin: 7 }} />
         <Button
           onPress={this.handleSubmit}
@@ -56,5 +63,18 @@ class Login extends Component {
     );
   }
 }
-
+const styles = StyleSheet.create({
+  background: {
+    backgroundColor: 'pink',
+  },
+  container: {
+    flex: 1,
+  },
+  inputWrap: {
+    flexDirection: 'row',
+    marginVertical: 10,
+    height: 40,
+    backgroundColor: 'transparent',
+  },
+});
 export default Login;

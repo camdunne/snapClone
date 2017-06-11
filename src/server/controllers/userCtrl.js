@@ -1,9 +1,8 @@
 import db from '../db/index';
 
 module.exports = {
-  createUser: (req, res, next) => {
+  createUser: (req, res) => {
     // need to salt password
-    console.log(req.body);
     console.log('i need req', req.body);
     const queryStr = 'INSERT INTO users (username, password, email) values (?, ?, ?)';
     const params = [req.body.username, req.body.password, req.body.email];

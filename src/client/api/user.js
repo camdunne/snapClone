@@ -1,10 +1,14 @@
-import headers from './config';
-export default {
-  createUser: (params) => {
-    fetch('http://localhost:3000/api/user/create', {
-      method: 'POST',
-      headers,
-      body: JSON.stringify(params),
-    }).then(response => response.json());
-  },
-};
+// import headers from './config';
+import { Actions } from 'react-native-router-flux';
+export function createUser(params) {
+  fetch('http://localhost:3000/api/user/create', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(params),
+  }).then(response => response.json())
+  .catch(err => console.error(err))
+  .then(() => Actions.home());
+}

@@ -70,7 +70,7 @@ class Signup extends Component {
   }
 }
 Signup.propTypes = {
-  // newUser: React.PropTypes.func.isRequired,
+
 };
 
 
