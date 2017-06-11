@@ -1,4 +1,4 @@
-CREATE DATABASE snap;
+
 USE snap;
 -- ---
 -- Globals
@@ -15,7 +15,7 @@ USE snap;
 DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(20) NOT NULL,
   `password` VARCHAR(20) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
@@ -30,8 +30,8 @@ CREATE TABLE `users` (
 DROP TABLE IF EXISTS `friends`;
 
 CREATE TABLE `friends` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `user1:user2` INTEGER NOT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `user1user2` INTEGER NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -43,11 +43,11 @@ CREATE TABLE `friends` (
 DROP TABLE IF EXISTS `messages`;
 
 CREATE TABLE `messages` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
   `from_user` INTEGER NOT NULL,
-  `message` VARCHAR NOT NULL,
-  `sent_date` DATETIME NOT NULL,
-  `life_span` TIME NULL DEFAULT '10',
+  `message` VARCHAR(120) NOT NULL DEFAULT '',
+  `sent_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `life_span` INTEGER NOT NULL DEFAULT 10,
   PRIMARY KEY (`id`)
 );
 
@@ -59,12 +59,12 @@ CREATE TABLE `messages` (
 DROP TABLE IF EXISTS `requests`;
 
 CREATE TABLE `requests` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `sent_by_user` INTEGER NOT NULL,
-  `receipient_id` INTEGER NOT NULL,
-  `message_id` INTEGER NOT NULL,
-  `status` VARCHAR NOT NULL DEFAULT 'pending',
-  `expired` VARCHAR NOT NULL DEFAULT 'pending',
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `sent_by_user` INTEGER NULL,
+  `receipient_id` INTEGER NULL,
+  `message_id` INTEGER NULL,
+  `status` VARCHAR(10) NOT NULL DEFAULT 'pending',
+  `expired` VARCHAR(10) NOT NULL DEFAULT 'pending',
   PRIMARY KEY (`id`)
 );
 
@@ -76,11 +76,11 @@ CREATE TABLE `requests` (
 DROP TABLE IF EXISTS `sent`;
 
 CREATE TABLE `sent` (
-  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
   `message_id` INTEGER NOT NULL,
   `receiver_id` INTEGER NOT NULL,
-  `status` VARCHAR NOT NULL DEFAULT 'pending',
-  `expired` VARCHAR NOT NULL DEFAULT 'false',
+  `status` VARCHAR(10) NOT NULL DEFAULT 'pending',
+  `expired` VARCHAR(10) NOT NULL DEFAULT 'false',
   PRIMARY KEY (`id`)
 );
 
@@ -88,7 +88,7 @@ CREATE TABLE `sent` (
 -- Foreign Keys
 -- ---
 
-ALTER TABLE `friends` ADD FOREIGN KEY (user1:user2) REFERENCES `users` (`id`);
+ALTER TABLE `friends` ADD FOREIGN KEY (user1user2) REFERENCES `users` (`id`);
 ALTER TABLE `messages` ADD FOREIGN KEY (from_user) REFERENCES `users` (`id`);
 ALTER TABLE `requests` ADD FOREIGN KEY (sent_by_user) REFERENCES `users` (`id`);
 ALTER TABLE `requests` ADD FOREIGN KEY (receipient_id) REFERENCES `users` (`id`);

@@ -1,19 +1,24 @@
-const db = '../db/index';
+import db from '../db/index';
+
 module.exports = {
   createUser: (req, res) => {
     // need to salt password
     console.log('i need req', req);
-    let queryStr = 'INSERT INTO users (username, password, email) values (?, ?, ?)';
-    let params = [req.body.username, req.body.password, req.body.email];
+    const queryStr = 'INSERT INTO users (username, password, email) values (?, ?, ?)';
+    const params = [req.body.username, req.body.password, req.body.email];
     db.query(queryStr, params, (err, results) => {
-        if (err) { throw err; }
-        res.sendStatus(201);
-    })
+      if (err) { throw err; }
+      res.sendStatus(201);
+    });
   },
   getAllUsers: (req, res) => {
-    res.send('getallusers');
+    console.log('what is this', req)
+    db.query('select * from users', (err, results) => {
+      if (err) { throw err; }
+      res.send(results);
+    });
   },
   authenticate: () => {},
   refresh: () => {},
   revokeAccess: () => {},
-}
+};

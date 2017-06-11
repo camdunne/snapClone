@@ -1,7 +1,4 @@
-import express, { Router } from 'express';
 import userController from '../controllers/userCtrl';
-
-
 
 module.exports = (app) => {
   app.post('/newUser', userController.createUser);

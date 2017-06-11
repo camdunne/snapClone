@@ -11,9 +11,14 @@ const store = configureStore();
 
 const Scenes = Actions.create(
   <Scene key="root">
-    <Scene key="home" component={Home} title="Home" />
-    <Scene key="login" component={Login} title="Log In" initial />
-    <Scene key="signup" component={Signup} title="Sign Up" />
+    <Scene
+      key="home"
+      component={Home}
+      hideNavBar
+      title="Home"
+    />
+    <Scene key="login" hideNavBar component={Login} title="Log In" initial />
+    <Scene key="signup" hideNavBar component={Signup} title="Sign Up" />
   </Scene>,
 );
 
