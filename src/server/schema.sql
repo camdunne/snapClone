@@ -1,3 +1,6 @@
+-- DROP DATABASE IF EXISTS snap;
+--
+-- CREATE DATABASE snap;
 
 USE snap;
 -- ---
@@ -18,7 +21,6 @@ CREATE TABLE `users` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(20) NOT NULL,
   `password` VARCHAR(20) NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`)
 );
 
