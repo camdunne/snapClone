@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Actions, Router, Scene } from 'react-native-router-flux';
 import Home from './screens/Home';
 import Login from './screens/Login';
@@ -19,10 +19,6 @@ const Scenes = Actions.create(
 );
 
 
-export default class App extends Component {
-  render() {
-    return (
-      <Router scenes={Scenes} />
-    );
-  }
-}
+export default () => (
+  <Router scenes={Scenes} />
+);
