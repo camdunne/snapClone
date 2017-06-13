@@ -1,8 +1,8 @@
 import userController from '../controllers/user';
-import authController from '../controllers/auth';
-module.exports = (app) => {
-  app.post('/api/user/login', authController.
-  )
+import { authLocalLogin } from '../controllers/passport';
+
+module.exports = (app, passport) => {
+  app.post('/login', authLocalLogin.bind(null, passport));
   app.post('/api/user/create', userController.createUser);
   app.get('/api/user/all', userController.getAllUsers);
   app.post('/api/user/auth', userController.authenticate);
