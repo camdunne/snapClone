@@ -10,11 +10,21 @@ const Scenes = Actions.create(
     <Scene
       key="home"
       component={Home}
-      hideNavBar
       title="Home"
     />
-    <Scene key="login" hideNavBar component={Login} title="Log In" initial />
-    <Scene key="signup" hideNavBar component={Signup} title="Sign Up" />
+    <Scene
+      key="login"
+      hideNavBar
+      component={Login}
+      title="Log In"
+      initial
+    />
+    <Scene
+      key="signup"
+      hideNavBar
+      component={Signup}
+      title="Sign Up"
+    />
   </Scene>,
 );
 

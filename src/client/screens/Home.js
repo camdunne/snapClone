@@ -1,8 +1,3 @@
-/**
- * Created by cameron on 6/9/17.
- */
-
-
 import React, { Component } from 'react';
 import {
     View,
@@ -10,36 +5,7 @@ import {
     StyleSheet,
     Dimensions,
 } from 'react-native';
-// import { connect } from 'react-redux';
 import Camera from 'react-native-camera';
-
-
-export default class Home extends Component {
-  takePicture() {
-    this.camera.capture()
-      .then(data => console.log(data))
-      .catch(err => console.error(err));
-  }
-
-  render() {
-    return (
-
-      <Camera
-        ref={(cam) => {
-          this.camera = cam;
-        }}
-        style={styles.preview}
-        aspect={Camera.constants.Aspect.fill}
-      >
-        <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
-      </Camera>
-
-    );
-  }
-}
-
-// const mapStateToProps = ()=>{};
-// export default connect(null, null)(Home);
 
 const styles = StyleSheet.create({
   preview: {
@@ -58,3 +24,27 @@ const styles = StyleSheet.create({
     margin: 40,
   },
 });
+export default class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.takePicture = this.takePicture.bind(this);
+  }
+  takePicture() {
+    this.camera.capture()
+      .then(data => console.log(data))
+      .catch(err => console.error(err));
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Camera
+          style={{ flex: 1 }}
+          ref={cam => this.camera = cam}
+          aspect={Camera.constants.Aspect.fill}
+        />
+
+      </View>
+    );
+  }
+}

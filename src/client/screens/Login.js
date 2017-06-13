@@ -8,8 +8,23 @@ import {
   StyleSheet,
   Dimensions,
 } from 'react-native';
-const { width, height } = Dimensions.get('window');
 import { Actions } from 'react-native-router-flux'; // New code
+
+const { width, height } = Dimensions.get('window');
+const styles = StyleSheet.create({
+  background: {
+    backgroundColor: 'pink',
+  },
+  container: {
+    flex: 1,
+  },
+  inputWrap: {
+    flexDirection: 'row',
+    marginVertical: 10,
+    height: 40,
+    backgroundColor: 'transparent',
+  },
+});
 
 class Login extends Component {
   constructor(props) {
@@ -63,18 +78,5 @@ class Login extends Component {
     );
   }
 }
-const styles = StyleSheet.create({
-  background: {
-    backgroundColor: 'pink',
-  },
-  container: {
-    flex: 1,
-  },
-  inputWrap: {
-    flexDirection: 'row',
-    marginVertical: 10,
-    height: 40,
-    backgroundColor: 'transparent',
-  },
-});
+
 export default Login;
