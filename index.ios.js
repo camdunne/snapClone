@@ -4,17 +4,14 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React from 'react';
 import { AppRegistry } from 'react-native';
 import App from './src/client/App';
 
-export default class snapClone extends Component {
-  render() {
-    return (
-      <App />
+const snapClone = () => (
+  <App />
     );
-  }
-}
 
+export default snapClone;
 
 AppRegistry.registerComponent('snapClone', () => snapClone);
