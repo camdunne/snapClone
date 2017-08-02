@@ -26,10 +26,10 @@
 		"mysql": "^2.13.0",
 		"passport": "^0.3.2",
 		"passport-local": "^1.0.0",
-		"react": "16.0.0-alpha.6",
-		"react-native": "0.44.2",
-		"react-native-camera": "0.4",
-		"react-native-router-flux": "^3.39.2",
+		"react": "16.0.0-alpha.12",
+		"react-native": "0.46.4",
+		"react-native-camera": "0.6",
+		"react-native-router-flux": "^3.39.2"
 	},
 	"devDependencies": {
 		"babel": "^6.23.0",
